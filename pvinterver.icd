@@ -1,0 +1,1570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SCL release="4" revision="B" version="2007"
+  xmlns="http://www.iec.ch/61850/2003/SCL"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Header id="AMPVI" version="1" toolID="TMW SCL Navigator">
+    <History>
+      <Hitem version="V01" revision="0" what="" why="Initial creation" who="Ch. Brunner" when="Nov Di. 19 23:47 2019" />
+    </History>
+  </Header>
+  <Communication>
+    <SubNetwork name="SubNetworkName">
+      <ConnectedAP apName="AP" iedName="PVINVERTER">
+        <Address>
+          <P type="OSI-AP-Title">1,1,9999,1</P>
+          <P type="OSI-AE-Qualifier">12</P>
+          <P type="OSI-PSEL">00000001</P>
+          <P type="OSI-SSEL">0001</P>
+          <P type="OSI-TSEL">0001</P>
+        </Address>
+      </ConnectedAP>
+    </SubNetwork>
+  </Communication>
+  <IED name="PVINV" manufacturer="NREL" configVersion="1.0" originalSclRelease="4" originalSclRevision="B" originalSclVersion="2007">
+    <Services nameLength="64">
+      <DynAssociation />
+      <GetDirectory />
+      <GetDataObjectDefinition />
+      <DataObjectDirectory />
+      <GetDataSetValue />
+      <DataSetDirectory />
+      <ConfDataSet modify="true" maxAttributes="50" max="50" />
+      <DynDataSet maxAttributes="100" max="50" />
+      <ReadWrite />
+      <ConfReportControl bufConf="true" bufMode="both" max="50" />
+      <GetCBValues />
+      <ReportSettings rptID="Dyn" optFields="Dyn" bufTime="Dyn" trgOps="Dyn" intgPd="Dyn" resvTms="true" owner="true" cbName="Conf" datSet="Dyn" />
+      <LogSettings logEna="Dyn" trgOps="Dyn" intgPd="Dyn" cbName="Conf" datSet="Dyn" />
+      <GSESettings appID="Conf" dataLabel="Conf" cbName="Conf" datSet="Conf" />
+      <GOOSE max="10" />
+      <FileHandling />
+      <ConfLNs fixPrefix="true" />
+      <ConfLdName />
+      <ConfSigRef max="100" />
+      <ValueHandling />
+    </Services>
+    <AccessPoint name="AP">
+      <Server>
+        <Authentication />
+        <LDevice inst="CTRL">
+          <LN0 lnType="LLN0_2007" lnClass="LLN0" inst="" />
+          <LN lnType="LPHD_TYPE" lnClass="LPHD" inst="1" prefix="" />
+        </LDevice>
+        <LDevice inst="PROT">
+          <LN0 lnType="LLN0_2007" lnClass="LLN0" inst="">
+            <DataSet name="ProtRpt">
+              <FCDA ldInst="PROT" lnClass="PTOV" lnInst="1" prefix="OVR1" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTOV" lnInst="1" prefix="OVR1" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTOV" lnInst="2" prefix="OVR2" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTOV" lnInst="2" prefix="OVR2" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTUV" lnInst="1" prefix="UVR1" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTUV" lnInst="1" prefix="UVR1" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTUV" lnInst="2" prefix="UVR2" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTUV" lnInst="2" prefix="UVR2" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTUV" lnInst="3" prefix="UVR3" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTUV" lnInst="3" prefix="UVR3" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTOF" lnInst="1" prefix="OFR1" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTOF" lnInst="1" prefix="OFR1" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTOF" lnInst="2" prefix="OFR2" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTOF" lnInst="2" prefix="OFR2" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTUF" lnInst="1" prefix="UFR1" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTUF" lnInst="1" prefix="UFR1" fc="ST" doName="Op" />
+              <FCDA ldInst="PROT" lnClass="PTUF" lnInst="2" prefix="UFR2" fc="ST" doName="Str" />
+              <FCDA ldInst="PROT" lnClass="PTUF" lnInst="2" prefix="UFR2" fc="ST" doName="Op" />
+            </DataSet>
+            <ReportControl name="ProtRpt" buffered="true" confRev="1" indexed="true" datSet="ProtRpt">
+              <TrgOps dchg="true" dupd="true" gi="true" period="false" />
+              <OptFields configRef="true" seqNum="true" entryID="true" bufOvfl="true" reasonCode="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <DOI name="GrRef">
+              <DAI name="setSrcRef">
+                <Val>@RideThrough</Val>
+              </DAI>
+            </DOI>
+          </LN0>
+          <LN lnType="PTOV_VoltageRideThrough" lnClass="PTOV" inst="1" prefix="OVR1" desc="OV 1 Momentary cessation">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>110</Val>
+                </DAI>
+              </SDI>
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val />
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal">
+                <Val>920</Val>
+              </DAI>
+              <DAI name="minVal">
+                <Val>1000</Val>
+              </DAI>
+              <DAI name="maxVal">
+                <Val>13000</Val>
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>5000</Val>
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="Beh">
+              <DAI name="stVal">
+                <Val />
+              </DAI>
+              <DAI name="q">
+                <Val />
+              </DAI>
+              <DAI name="t">
+                <Val />
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+              <DAI name="dU">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="Str">
+              <DAI name="general">
+                <Val />
+              </DAI>
+              <DAI name="dirGeneral">
+                <Val />
+              </DAI>
+              <DAI name="q">
+                <Val />
+              </DAI>
+              <DAI name="t">
+                <Val />
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="Op">
+              <DAI name="general">
+                <Val />
+              </DAI>
+              <DAI name="q">
+                <Val />
+              </DAI>
+              <DAI name="t">
+                <Val />
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="ClcStr">
+              <DAI name="stVal">
+                <Val />
+              </DAI>
+              <DAI name="q">
+                <Val />
+              </DAI>
+              <DAI name="t">
+                <Val />
+              </DAI>
+              <DAI name="ctlModel">
+                <Val />
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="MinOpTmms">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI name="setVal">
+                <Val />
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+            <DOI name="MaxOpTmms">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI name="setVal">
+                <Val />
+              </DAI>
+              <DAI name="d">
+                <Val />
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTOV_VoltageRideThrough" lnClass="PTOV" inst="2" prefix="OVR2" desc="OV2 Trip">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>120</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal">
+                <Val>0</Val>
+              </DAI>
+              <DAI name="minVal">
+                <Val>0</Val>
+              </DAI>
+              <DAI name="maxVal">
+                <Val>160</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>5000</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTUV_VoltageRideThrough" lnClass="PTUV" inst="1" prefix="UVR1" desc="UV1a Mandatory operation">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>88</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal">
+                <Val>20000</Val>
+              </DAI>
+              <DAI name="maxVal">
+                <Val>50000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>5000</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTUV_VoltageRideThrough" lnClass="PTUV" inst="2" prefix="UVR2" desc="UV1b Mandatory operation">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>70</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal">
+                <Val>10000</Val>
+              </DAI>
+              <DAI name="maxVal">
+                <Val>50000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>5000</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTUV_VoltageRideThrough" lnClass="PTUV" inst="3" prefix="UVR3" desc="UV2 Momentary cessation">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>50</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal">
+                <Val>0</Val>
+              </DAI>
+              <DAI name="maxVal">
+                <Val>21000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>5000</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTOF_FrequencyRideThrough" lnClass="PTOF" inst="1" prefix="OFR1" desc="OF1">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>63</Val>
+                </DAI>
+              </SDI>
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>1/s</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal" ">
+<Val>20000</Val>
+</DAI>
+<DAI name="minVal">
+                <Val>180000</Val>
+              </DAI>
+              <DAI name="maxVal">
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>0</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTOF_FrequencyRideThrough" lnClass="PTOF" inst="2" prefix="OFR2" desc="OF2 Trip">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f">
+                  <Val>64</Val>
+                </DAI>
+              </SDI>
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>1/s</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="OpDlTmms">
+              <DAI name="setVal">
+                <Val>0</Val>
+              </DAI>
+              <DAI name="minVal">
+                <Val>0</Val>
+              </DAI>
+              <DAI name="maxVal">
+                <Val>1000000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RsDlTmms">
+              <DAI name="setVal">
+                <Val>0</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN lnType="PTUF_FrequencyRideThrough" lnClass="PTUF" inst="1" prefix="UFR1" desc="UF1">
+            <DOI name="StrVal">
+              <SDI name="setMag">
+                <DAI name="f" ">
+<Val>57</Val>
+</DAI>
+</SDI>
+<SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>1/s</Val>
+                  </DAI>
+                </SDI>
+              </DOI>
+              <DOI name="OpDlTmms">
+                <DAI name="setVal">
+                  <Val>20000</Val>
+                </DAI>
+                <DAI name="minVal">
+                  <Val>180000</Val>
+                </DAI>
+                <DAI name="maxVal">
+                  <Val>1000000</Val>
+                </DAI>
+              </DOI>
+              <DOI name="RsDlTmms">
+                <DAI name="setVal">
+                  <Val>0</Val>
+                </DAI>
+              </DOI>
+            </LN>
+            <LN lnType="PTUF_FrequencyRideThrough" lnClass="PTUF" inst="2" prefix="UFR2" desc="UF2">
+              <DOI name="StrVal">
+                <SDI name="setMag">
+                  <DAI name="f">
+                    <Val>56</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>1/s</Val>
+                  </DAI>
+                </SDI>
+              </DOI>
+              <DOI name="OpDlTmms">
+                <DAI name="setVal">
+                  <Val>0</Val>
+                </DAI>
+                <DAI name="minVal">
+                  <Val>0</Val>
+                </DAI>
+                <DAI name="maxVal">
+                  <Val>1000000</Val>
+                </DAI>
+              </DOI>
+              <DOI name="RsDlTmms">
+                <DAI name="setVal">
+                  <Val>0</Val>
+                </DAI>
+              </DOI>
+            </LN>
+            <LN lnType="LPHD_TYPE" lnClass="LPHD" inst="1" />
+          </LDevice>
+          <LDevice inst="MEAS">
+            <LN0 lnType="LLN0_2007" lnClass="LLN0" inst="">
+              <DataSet name="MeasRpt">
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="TotW" daName="mag" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="TotW" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="TotW" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="TotVAr" daName="mag" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="TotVAr" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="TotVAr" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="Hz" daName="mag" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="Hz" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="Hz" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsA" daName="cVal" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsA" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsA" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsB" daName="cVal" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsB" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsB" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsC" daName="cVal" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsC" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="PhV.phsC" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsA" daName="cVal" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsA" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsA" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsB" daName="cVal" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsB" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsB" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsC" daName="cVal" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsC" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMXU" lnInst="1" prefix="" fc="MX" doName="A.phsC" daName="t" />
+                <FCDA ldInst="MEAS" lnClass="MMDC" lnInst="1" prefix="" fc="MX" doName="Watt" daName="mag" />
+                <FCDA ldInst="MEAS" lnClass="MMDC" lnInst="1" prefix="" fc="MX" doName="Watt" daName="q" />
+                <FCDA ldInst="MEAS" lnClass="MMDC" lnInst="1" prefix="" fc="MX" doName="Watt" daName="t" />
+              </DataSet>
+              <ReportControl name="urcbMeas" buffered="false" confRev="1" indexed="true" datSet="MeasRpt" intgPd="5000">
+                <TrgOps gi="true" period="true" dchg="false" dupd="false" />
+                <OptFields configRef="true" seqNum="true" entryID="true" bufOvfl="true" reasonCode="true" timeStamp="true" />
+                <RptEnabled max="4" />
+              </ReportControl>
+            </LN0>
+            <LN lnType="MMXU_AMPVI" lnClass="MMXU" inst="1" prefix="">
+              <DOI name="Beh">
+                <DAI name="stVal">
+                  <Val />
+                </DAI>
+                <DAI name="q">
+                  <Val />
+                </DAI>
+                <DAI name="t">
+                  <Val />
+                </DAI>
+                <DAI name="d">
+                  <Val />
+                </DAI>
+                <DAI name="dU">
+                  <Val />
+                </DAI>
+              </DOI>
+              <DOI name="TotW">
+
+                <SDI name="instMag">
+                  <DAI name="f">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="mag">
+                  <DAI name="f">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI name="q">
+                  <Val />
+                </DAI>
+                <DAI name="t">
+                  <Val />
+                </DAI>
+                <DAI name="db">
+                  <Val />
+                </DAI>
+                <DAI name="d">
+                  <Val />
+                </DAI>
+              </DOI>
+              <DOI name="TotVAr">
+                <SDI name="instMag">
+                  <DAI name="f">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="mag">
+                  <DAI name="f">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI name="q">
+                  <Val />
+                </DAI>
+                <DAI name="t">
+                  <Val />
+                </DAI>
+                <DAI name="db">
+                  <Val />
+                </DAI>
+                <DAI name="d">
+                  <Val />
+                </DAI>
+              </DOI>
+              <DOI name="Hz">
+                <SDI name="instMag">
+                  <DAI name="f">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="mag">
+                  <DAI name="f">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI name="q">
+                  <Val />
+                </DAI>
+                <DAI name="t">
+                  <Val />
+                </DAI>
+                <DAI name="db">
+                  <Val />
+                </DAI>
+                <DAI name="d">
+                  <Val />
+                </DAI>
+              </DOI>
+              <DOI name="PhV">
+                <SDI name="phsA">
+                  <SDI name="cVal">
+                    <SDI name="mag">
+                      <DAI name="f" />
+                    </SDI>
+                  </SDI>
+                  <DAI name="t" />
+
+                  <SDI name="units">
+                    <DAI name="SIUnit">
+                      <Val />
+                    </DAI>
+                    <DAI name="multiplier">
+                      <Val />
+                    </DAI>
+                  </SDI>
+                  <DAI name="q">
+                    <Val />
+                  </DAI>
+                  <DAI name="t">
+                    <Val />
+                  </DAI>
+                  <DAI name="db">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="phsB">
+
+                  <SDI name="cVal">
+                    <SDI name="mag">
+                      <DAI name="f" />
+                    </SDI>
+                  </SDI>
+
+
+
+                  <SDI name="units">
+                    <DAI name="SIUnit">
+                      <Val />
+                    </DAI>
+                    <DAI name="multiplier">
+                      <Val />
+                    </DAI>
+                  </SDI>
+                  <DAI name="q">
+                    <Val />
+                  </DAI>
+                  <DAI name="t">
+                    <Val />
+                  </DAI>
+                  <DAI name="db">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="phsC">
+                  <SDI name="cVal">
+                    <SDI name="mag">
+                      <DAI name="f"/>
+                    </SDI>
+                  </SDI>
+                  <SDI name="units">
+                    <DAI name="SIUnit">
+                      <Val />
+                    </DAI>
+                    <DAI name="multiplier">
+                      <Val />
+                    </DAI>
+                  </SDI>
+                  <DAI name="q">
+                    <Val />
+                  </DAI>
+                  <DAI name="t">
+                    <Val />
+                  </DAI>
+                  <DAI name="db">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI name="d">
+                  <Val />
+                </DAI>
+              </DOI>
+              <DOI name="A">
+                <SDI name="phsA">
+                  <SDI name="cVal">
+                    <SDI name="mag">
+                      <DAI name="f" />
+                    </SDI>
+                  </SDI>
+                  <DAI name="q" />
+                  <DAI name="t" />
+
+                  <SDI name="units">
+                    <DAI name="SIUnit">
+                      <Val />
+                    </DAI>
+                    <DAI name="multiplier">
+                      <Val />
+                    </DAI>
+                  </SDI>
+                  <DAI name="q">
+                    <Val />
+                  </DAI>
+                  <DAI name="t">
+                    <Val />
+                  </DAI>
+                  <DAI name="db">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="phsB">
+                  <SDI name="cVal">
+                    <SDI name="mag">
+                      <DAI name="f" />
+                    </SDI>
+                  </SDI>
+                  <DAI name="q" />
+                  <DAI name="t" />
+
+                  <SDI name="units">
+
+
+                    <DAI name="SIUnit">
+                      <Val />
+                    </DAI>
+                    <DAI name="multiplier">
+                      <Val />
+                    </DAI>
+                  </SDI>
+                  <DAI name="q">
+                    <Val />
+                  </DAI>
+                  <DAI name="t">
+                    <Val />
+                  </DAI>
+                  <DAI name="db">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <SDI name="phsC">
+                  <SDI name="cVal">
+                    <SDI name="mag">
+                      <DAI name="f" />
+                    </SDI>
+                  </SDI>
+                  <DAI name="q" />
+                  <DAI name="t" />
+
+                  <SDI name="units">
+                    <DAI name="SIUnit">
+                      <Val />
+                    </DAI>
+                    <DAI name="multiplier">
+                      <Val />
+                    </DAI>
+                  </SDI>
+                  <DAI name="q">
+                    <Val />
+                  </DAI>
+                  <DAI name="t">
+                    <Val />
+                  </DAI>
+                  <DAI name="db">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI name="d">
+                  <Val />
+                </DAI>
+              </DOI>
+            </LN>
+            <LN lnType="MMDC_AMPVI" lnClass="MMDC" inst="1" prefix="" />
+          </LDevice>
+          <LDevice inst="RideThrough">
+            <LN0 lnType="LLN0_7-420" lnClass="LLN0" inst="" />
+            <LN lnType="DHVT_AMPVI" lnClass="DHVT" inst="1" prefix="" />
+            <LN lnType="DLVT_AMPVI" lnClass="DLVT" inst="1" prefix="" />
+            <LN lnType="DHFT_TYPE" lnClass="DHFT" inst="1" prefix="">
+              <DOI name="HzChgMaxRte">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>Hz/s</Val>
+                  </DAI>
+                </SDI>
+                <DAI name="setVal">
+                  <Val>3</Val>
+                </DAI>
+              </DOI>
+            </LN>
+            <LN lnType="DLFT_TYPE" lnClass="DLFT" inst="1" prefix="">
+              <DOI name="HzChgMaxRte">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>Hz/s</Val>
+                  </DAI>
+                </SDI>
+                <DAI name="setVal">
+                  <Val>3</Val>
+                </DAI>
+              </DOI>
+            </LN>
+          </LDevice>
+          <LDevice inst="InverterFunction">
+            <LN0 lnType="LLN0_7-420" lnClass="LLN0" inst="" />
+            <LN lnType="DVVR_TYPE" lnClass="DVVR" inst="1" prefix="">
+              <DOI name="VArSetRef">
+                <DAI name="setVal">
+                  <Val>Reactive power in percent of VArMax</Val>
+                </DAI>
+              </DOI>
+              <DOI name="VVArCrv">
+                <SDI name="crvPts" ix="0">
+                  <DAI name="xVal">
+                    <Val>0.8</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>0.5</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="1">
+                  <DAI name="xVal">
+                    <Val>0.9333</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>50</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="2">
+                  <DAI name="xVal">
+                    <Val>0.95</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>0</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="3">
+                  <DAI name="xVal">
+                    <Val>1</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>0</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="4">
+                  <DAI name="xVal">
+                    <Val>1.017</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>-50</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="5">
+                  <DAI name="xVal">
+                    <Val>1.2</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>-50</Val>
+                  </DAI>
+                </SDI>
+                <DAI name="numPts">
+                  <Val>6</Val>
+                </DAI>
+                <DAI name="maxPts">
+                  <Val>10</Val>
+                </DAI>
+                <DAI name="xD">
+                  <Val>Voltage in PU</Val>
+                </DAI>
+                <DAI name="yD">
+                  <Val>VAR in percent of Max</Val>
+                </DAI>
+              </DOI>
+            </LN>
+            <LN lnType="DVWC_TYPE" lnClass="DVWC" inst="1" prefix="">
+              <DOI name="VWCrv">
+                <SDI name="crvPts" ix="0">
+                  <DAI name="xVal">
+                    <Val>1</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>100</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="1">
+                  <DAI name="xVal">
+                    <Val>1.02</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>100</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="2">
+                  <DAI name="xVal">
+                    <Val>1.025</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>50</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="3">
+                  <DAI name="xVal">
+                    <Val>1.075</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>50</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="4">
+                  <DAI name="xVal">
+                    <Val>1.08</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>0</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="5">
+                  <DAI name="xVal">
+                    <Val>1.2</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>0</Val>
+                  </DAI>
+                </SDI>
+                <DAI name="numPts">
+                  <Val>6</Val>
+                </DAI>
+                <DAI name="maxPts">
+                  <Val>10</Val>
+                </DAI>
+                <DAI name="xD">
+                  <Val>Volts in PU</Val>
+                </DAI>
+                <DAI name="yD">
+                  <Val>Watts in percentage of WMax</Val>
+                </DAI>
+              </DOI>
+              <DOI name="VWCrvRef">
+                <DAI name="setVal">
+                  <Val>Active power as percent of maximum active power</Val>
+                </DAI>
+              </DOI>
+            </LN>
+            <LN lnType="DHFW_TYPE" lnClass="DHFW" inst="1" prefix="">
+              <DOI name="HzRef">
+                <SDI name="setMag">
+                  <DAI name="f">
+                    <Val>60</Val>
+                  </DAI>
+                </SDI>
+              </DOI>
+              <DOI name="HzWCrv">
+                <SDI name="crvPts" ix="0">
+                  <DAI name="xVal">
+                    <Val>60</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>100</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="1">
+                  <DAI name="xVal">
+                    <Val>60.01</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>100</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="2">
+                  <DAI name="xVal">
+                    <Val>60.02</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>50</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="crvPts" ix="3">
+                  <DAI name="xVal">
+                    <Val>60.03</Val>
+                  </DAI>
+                  <DAI name="yVal">
+                    <Val>50</Val>
+                  </DAI>
+                </SDI>
+                <SDI name="xUnits">
+                  <DAI name="SIUnit">
+                    <Val>Hz</Val>
+                  </DAI>
+                </SDI>
+                <DAI name="numPts">
+                  <Val>4</Val>
+                </DAI>
+                <DAI name="maxPts">
+                  <Val>10</Val>
+                </DAI>
+                <DAI name="xD">
+                  <Val>Frequency</Val>
+                </DAI>
+                <DAI name="yD">
+                  <Val>Watts in percentage of WMax</Val>
+                </DAI>
+              </DOI>
+              <DOI name="HzWCrvRef">
+                <DAI name="setVal">
+                  <Val>Active power as percent of maximum active power</Val>
+                </DAI>
+              </DOI>
+            </LN>
+          </LDevice>
+        </Server>
+        <Services />
+      </AccessPoint>
+    </IED>
+    <DataTypeTemplates>
+      <LNodeType id="LLN0_2007" lnClass="LLN0">
+        <DO name="NamPlt" type="LPL_LD7-4_2007B" />
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="Health" type="ENS_Health" />
+        <DO name="LocKey" type="SPS_noSVnoBL" />
+        <DO name="Loc" type="SPS_noSVnoBL" />
+        <DO name="Mod" type="ENC_Mod_direct" />
+        <DO name="LocSta" type="SPC_direct" />
+        <DO name="Diag" type="SPC_direct" />
+        <DO name="LEDRs" type="SPC_direct" />
+        <DO name="GrRef" type="ORG_d" />
+        <DO name="MltLev" type="SPG_SP" />
+      </LNodeType>
+      <LNodeType id="LLN0_7-420" lnClass="LLN0">
+        <DO name="NamPlt" type="LPL_LD7-420_2009A" />
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="Health" type="ENS_Health" />
+        <DO name="Mod" type="ENC_Mod_direct" />
+        <DO name="Diag" type="SPC_direct" />
+        <DO name="LEDRs" type="SPC_direct" />
+      </LNodeType>
+      <LNodeType id="LPHD_TYPE" lnClass="LPHD">
+        <DO name="PhyNam" type="DPL_Full" />
+        <DO name="PhyHealth" type="ENS_Health" />
+        <DO name="OutOv" type="SPS_noSVnoBL" />
+        <DO name="Proxy" type="SPS_noSVnoBL" />
+        <DO name="InOv" type="SPS_noSVnoBL" />
+        <DO name="OpTmh" type="INS_noSVnoBL" />
+        <DO name="NumPwrUp" type="INS_noSVnoBL" />
+        <DO name="WrmStr" type="INS_noSVnoBL" />
+        <DO name="WacTrg" type="INS_noSVnoBL" />
+        <DO name="PwrUp" type="SPS_noSVnoBL" />
+        <DO name="PwrDn" type="SPS_noSVnoBL" />
+        <DO name="PwrSupAlm" type="SPS_noSVnoBL" />
+        <DO name="RsStat" type="SPC_direct" />
+        <DO name="Sim" type="SPC_direct" />
+      </LNodeType>
+      <LNodeType id="PTOV_VoltageRideThrough" lnClass="PTOV">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="ClcStr" type="SPC_status" />
+        <DO name="Str" type="ACD_d" />
+        <DO name="Op" type="ACT_d" />
+        <DO name="StrVal" type="ASG_units" />
+        <DO name="MinOpTmms" type="ING_unit" />
+        <DO name="MaxOpTmms" type="ING_unit" />
+        <DO name="OpDlTmms" type="ING_d_min-max" />
+        <DO name="RsDlTmms" type="ING_d" />
+      </LNodeType>
+      <LNodeType id="PTUV_VoltageRideThrough" lnClass="PTUV">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="Str" type="ACD_d" />
+        <DO name="StrVal" type="ASG_units" />
+        <DO name="OpDlTmms" type="ING_d_min-max" />
+        <DO name="RsDlTmms" type="ING_d" />
+        <DO name="Op" type="ACT_d" />
+      </LNodeType>
+      <LNodeType id="PTOF_FrequencyRideThrough" lnClass="PTOF">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="Str" type="ACD_d" />
+        <DO name="Op" type="ACT_d" />
+        <DO name="StrVal" type="ASG_units" />
+        <DO name="OpDlTmms" type="ING_d_min-max" />
+        <DO name="RsDlTmms" type="ING_d" />
+      </LNodeType>
+      <LNodeType id="PTUF_FrequencyRideThrough" lnClass="PTUF">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="Str" type="ACD_d" />
+        <DO name="Op" type="ACT_d" />
+        <DO name="StrVal" type="ASG_units" />
+        <DO name="OpDlTmms" type="ING_d_min-max" />
+        <DO name="RsDlTmms" type="ING_d" />
+      </LNodeType>
+      <LNodeType id="MMXU_AMPVI" lnClass="MMXU">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="TotW" type="MV_Inst_db_d" />
+        <DO name="TotVAr" type="MV_Inst_db_d" />
+        <DO name="Hz" type="MV_Inst_db_d" />
+        <DO name="PhV" type="WYE_3ph" />
+        <DO name="A" type="WYE_3ph" />
+      </LNodeType>
+      <LNodeType id="MMDC_AMPVI" lnClass="MMDC">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="Watt" type="MV_Inst_db_d" />
+      </LNodeType>
+      <LNodeType id="DHVT_AMPVI" lnClass="DHVT">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="ModRtSt" type="SPS_noSVnoBL" />
+        <DO name="TrZnSt" type="SPS_noSVnoBL" />
+        <DO name="CeaZnSt" type="SPS_noSVnoBL" />
+        <DO name="RtRs" type="INC_direct" />
+      </LNodeType>
+      <LNodeType id="DLVT_AMPVI" lnClass="DLVT">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="ModRtSt" type="SPS_noSVnoBL" />
+        <DO name="TrZnSt" type="SPS_noSVnoBL" />
+        <DO name="CeaZnSt" type="SPS_noSVnoBL" />
+        <DO name="RtRs" type="INC_direct" />
+      </LNodeType>
+      <LNodeType id="DHFT_TYPE" lnClass="DHFT">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="ModRtSt" type="SPS_noSVnoBL" />
+        <DO name="TrZnSt" type="SPS_noSVnoBL" />
+        <DO name="CeaZnSt" type="SPS_noSVnoBL" />
+        <DO name="RtRs" type="INC_direct" />
+        <DO name="HzChgMaxRte" type="ING_unit" />
+      </LNodeType>
+      <LNodeType id="DLFT_TYPE" lnClass="DLFT">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="ModRtSt" type="SPS_noSVnoBL" />
+        <DO name="TrZnSt" type="SPS_noSVnoBL" />
+        <DO name="CeaZnSt" type="SPS_noSVnoBL" />
+        <DO name="RtRs" type="INC_direct" />
+        <DO name="HzChgMaxRte" type="ING_unit" />
+      </LNodeType>
+      <LNodeType id="DVVR_TYPE" lnClass="DVVR">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="UseRmpRte" type="SPG_SP" />
+        <DO name="ChaEmgRpuMax" type="ASG_units" />
+        <DO name="ChaEmgRpdMax" type="ASG_units" />
+        <DO name="ReqVAr" type="MV_Inst_db_d" />
+        <DO name="VArSetRef" type="ENG_ReactivePowerRefParamKind_d" />
+        <DO name="VRefEsp" type="MV_Inst_db_d" />
+        <DO name="ReqW" type="MV" />
+        <DO name="VVArCrv" type="CSG_d" />
+      </LNodeType>
+      <LNodeType id="DVWC_TYPE" lnClass="DVWC">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="UseRmpRte" type="SPG_SP" />
+        <DO name="ChaEmgRpuMax" type="ASG_units" />
+        <DO name="ChaEmgRpdMax" type="ASG_units" />
+        <DO name="ReqW" type="MV_Inst_db_d" />
+        <DO name="SnptBarEna" type="SPG_SP_False" />
+        <DO name="FilTms" type="ING_d" />
+        <DO name="RtnRmpRte" type="ASG_units" />
+        <DO name="VWCrv" type="CSG_d" />
+        <DO name="VWCrvRef" type="ENG_VoltageActivePowerRefParamKind_d" />
+        <DO name="VRefSet" type="ASG_units" />
+      </LNodeType>
+      <LNodeType id="DHFW_TYPE" lnClass="DHFW">
+        <DO name="Beh" type="ENS_Beh" />
+        <DO name="EcpRef" type="ORG_d" />
+        <DO name="FctEna" type="SPC_status" />
+        <DO name="FctEnaSet" type="SPG_SP_True" />
+        <DO name="UseRmpRte" type="SPG_SP" />
+        <DO name="ChaEmgRpuMax" type="ASG_units" />
+        <DO name="ChaEmgRpdMax" type="ASG_units" />
+        <DO name="ReqW" type="MV_Inst_db_d" />
+        <DO name="SnptBarEna" type="SPG_SP_False" />
+        <DO name="FilTms" type="ING_d" />
+        <DO name="RtnRmpRte" type="ASG_units" />
+        <DO name="HzWCrv" type="CSG_d" />
+        <DO name="HzWCrvRef" type="ENG_VoltageActivePowerRefParamKind_d" />
+        <DO name="HzRef" type="ASG_units" />
+      </LNodeType>
+      <DOType id="LPL_LD7-4_2007B" cdc="LPL">
+        <DA name="vendor" bType="VisString255" fc="DC">
+          <Val>NREL</Val>
+        </DA>
+        <DA name="swRev" bType="VisString255" fc="DC">
+          <Val>1.0</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+        <DA name="configRev" bType="VisString255" fc="DC">
+          <Val>1.0</Val>
+        </DA>
+        <DA name="paramRev" bType="INT32" dchg="true" fc="ST">
+          <Val>0</Val>
+        </DA>
+        <DA name="valRev" bType="INT32" dchg="true" fc="ST">
+          <Val>0</Val>
+        </DA>
+        <DA name="ldNs" bType="VisString255" fc="EX">
+          <Val>IEC 61850-7-4:2007B</Val>
+        </DA>
+      </DOType>
+      <DOType id="ENS_Health" cdc="ENS">
+        <DA name="stVal" bType="Enum" type="HealthKind" dchg="true" dupd="true" fc="ST" />
+        <DA name="q" bType="Quality" qchg="true" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+      </DOType>
+      <DOType id="ENS_Beh" cdc="ENS">
+        <DA name="stVal" bType="Enum" type="BehaviourModeKind" dchg="true" dupd="true" fc="ST" />
+        <DA name="q" bType="Quality" qchg="true" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+      </DOType>
+      <DOType id="SPS_noSVnoBL" cdc="SPS">
+        <DA name="stVal" bType="BOOLEAN" dchg="true" fc="ST" />
+        <DA name="q" bType="Quality" qchg="true" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+      </DOType>
+      <DOType id="ENC_Mod_direct" cdc="ENC">
+        <DA name="origin" bType="Struct" type="Originator" fc="ST" />
+        <DA name="stVal" bType="Enum" type="BehaviourModeKind" dchg="true" fc="ST" />
+        <DA name="q" bType="Quality" qchg="true" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="ctlModel" bType="Enum" type="CtlModelKind" fc="CF" valKind="RO">
+          <Val>direct-with-normal-security</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+        <DA name="Oper" bType="Struct" fc="CO" type="OperBehaviourModeKind" />
+      </DOType>
+      <DOType id="SPC_direct" cdc="SPC">
+        <DA name="origin" bType="Struct" type="Originator" fc="ST" />
+        <DA name="stVal" bType="BOOLEAN" dchg="true" fc="ST" />
+        <DA name="q" bType="Quality" qchg="true" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="ctlModel" bType="Enum" type="CtlModelKind" dchg="true" fc="CF" valKind="RO">
+          <Val>direct-with-normal-security</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+        <DA name="Oper" bType="Struct" fc="CO" type="OperBool" />
+      </DOType>
+      <DOType id="INS_noSVnoBL" cdc="INS">
+        <DA name="stVal" bType="INT32" dchg="true" fc="ST" />
+        <DA name="q" bType="Quality" qchg="true" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+      </DOType>
+      <DOType id="SPG_SP" cdc="SPG">
+        <DA name="setVal" bType="BOOLEAN" dchg="true" fc="SP" />
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+      </DOType>
+      <DOType id="DPL_Full" cdc="DPL">
+        <DA name="vendor" bType="VisString255" fc="DC">
+          <Val>NREL</Val>
+        </DA>
+        <DA name="hwRev" bType="VisString255" fc="DC" />
+        <DA name="swRev" bType="VisString255" fc="DC" />
+        <DA name="serNum" bType="VisString255" fc="DC" />
+        <DA name="model" bType="VisString255" fc="DC" />
+        <DA name="location" bType="VisString255" fc="DC" />
+        <DA name="name" bType="VisString64" fc="DC" />
+        <DA name="owner" bType="VisString255" fc="DC" />
+        <DA name="ePSName" bType="VisString255" fc="DC" />
+        <DA name="primeOper" bType="VisString255" fc="DC" />
+        <DA name="secondOper" bType="VisString255" fc="DC" />
+        <DA name="latitude" bType="FLOAT32" fc="DC" />
+        <DA name="longitude" bType="FLOAT32" fc="DC" />
+        <DA name="altitude" bType="FLOAT32" fc="DC" />
+        <DA name="mRID" bType="VisString255" fc="DC" />
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="dU" bType="Unicode255" fc="DC" />
+      </DOType>
+      <DOType id="ACD_d" cdc="ACD">
+        <DA name="general" bType="BOOLEAN" fc="ST" />
+        <DA name="dirGeneral" bType="Enum" type="FaultDirectionKind" fc="ST" />
+        <DA name="q" bType="Quality" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ACT_d" cdc="ACT">
+        <DA name="general" bType="BOOLEAN" fc="ST" />
+        <DA name="q" bType="Quality" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ING_d" cdc="ING">
+        <DA name="setVal" bType="INT32" fc="SP" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ASG_units" cdc="ASG">
+        <DA name="setMag" bType="Struct" type="AnalogueValue" fc="SP" />
+        <DA name="units" bType="Struct" type="Unit" fc="CF" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="CMV_inst_db" cdc="CMV">
+        <DA name="instCVal" bType="Struct" type="TMW_Generated_Vector" fc="MX" />
+        <DA name="cVal" bType="Struct" type="TMW_Generated_Vector" fc="MX" />
+        <DA name="q" bType="Quality" fc="MX" />
+        <DA name="t" bType="Timestamp" fc="MX" />
+        <DA name="units" bType="Struct" type="Unit" fc="CF" />
+        <DA name="db" bType="INT32U" fc="CF" />
+      </DOType>
+      <DOType id="WYE_3ph" cdc="WYE">
+        <SDO name="phsA" type="CMV_inst_db" />
+        <SDO name="phsB" type="CMV_inst_db" />
+        <SDO name="phsC" type="CMV_inst_db" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="MV_Inst_db_d" cdc="MV">
+        <DA name="instMag" bType="Struct" type="AnalogueValue" fc="MX" />
+        <DA name="mag" bType="Struct" type="AnalogueValue" fc="MX" />
+        <DA name="q" bType="Quality" fc="MX" />
+        <DA name="t" bType="Timestamp" fc="MX" />
+        <DA name="db" bType="INT32U" fc="CF" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="LPL_LD7-420_2009A" cdc="LPL">
+        <DA name="paramRev" bType="INT32" fc="ST" />
+        <DA name="valRev" bType="INT32" fc="ST" />
+        <DA name="vendor" bType="VisString255" fc="DC">
+          <Val>NREL</Val>
+        </DA>
+        <DA name="swRev" bType="VisString255" fc="DC">
+          <Val>1.0</Val>
+        </DA>
+        <DA name="ldNs" bType="VisString255" fc="EX">
+          <Val>IEC 61850-7-420:2019A</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+        <DA name="configRev" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="SPC_status" cdc="SPC">
+        <DA name="stVal" bType="BOOLEAN" fc="ST" />
+        <DA name="q" bType="Quality" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="ctlModel" bType="Enum" type="CtlModelKind" fc="CF" valKind="RO">
+          <Val>status-only</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="SPG_SP_True" cdc="SPG">
+        <DA name="setVal" bType="BOOLEAN" fc="SP">
+          <Val>True</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ING_d_min-max" cdc="ING">
+        <DA name="setVal" bType="INT32" fc="SP" />
+        <DA name="minVal" bType="INT32" fc="CF" />
+        <DA name="maxVal" bType="INT32" fc="CF" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="INC_direct" cdc="INC">
+        <DA name="stVal" bType="INT32" fc="ST" />
+        <DA name="q" bType="Quality" fc="ST" />
+        <DA name="t" bType="Timestamp" fc="ST" />
+        <DA name="ctlModel" bType="Enum" type="CtlModelKind" fc="CF" valKind="RO">
+          <Val>status-only</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ING_unit" cdc="ING">
+        <DA name="setVal" bType="INT32" fc="SP" />
+        <DA name="units" bType="Struct" type="TMW_Generated_Unit1" fc="CF" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ORG_d" cdc="ORG">
+        <DA name="setSrcRef" bType="ObjRef" fc="SP" />
+        <DA name="setTstRef" bType="ObjRef" fc="SP" />
+        <DA name="setSrcCB" bType="ObjRef" fc="SP" />
+        <DA name="setTstCB" bType="ObjRef" fc="SP" />
+        <DA name="intAddr" bType="VisString255" fc="SP" />
+        <DA name="tstEna" bType="BOOLEAN" fc="SP" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="MV" cdc="MV">
+        <DA name="mag" bType="Struct" type="AnalogueValue" fc="MX" />
+        <DA name="q" bType="Quality" fc="MX" />
+        <DA name="t" bType="Timestamp" fc="MX" />
+      </DOType>
+      <DOType id="ENG_ReactivePowerRefParamKind_d" cdc="ENG">
+        <DA name="setVal" bType="Enum" type="ReactivePowerRefParamKind" fc="SP" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="CSG_d" cdc="CSG">
+        <DA name="pointZ" bType="FLOAT32" fc="SP" />
+        <DA name="numPts" bType="INT16U" fc="SP" />
+        <DA name="crvPts" bType="Struct" type="TMW_Generated_Point" fc="SP" count="32" />
+        <DA name="xUnits" bType="Struct" type="TMW_Generated_Unit1" fc="CF" />
+        <DA name="yUnits" bType="Struct" type="TMW_Generated_Unit1" fc="CF" />
+        <DA name="maxPts" bType="INT16U" fc="CF" />
+        <DA name="xD" bType="VisString255" fc="DC" />
+        <DA name="yD" bType="VisString255" fc="DC" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="SPG_SP_False" cdc="SPG">
+        <DA name="setVal" bType="BOOLEAN" fc="SP">
+          <Val>False</Val>
+        </DA>
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DOType id="ENG_VoltageActivePowerRefParamKind_d" cdc="ENG">
+        <DA name="setVal" bType="Enum" type="VoltageActivePowerRefParamKind" fc="SP" />
+        <DA name="d" bType="VisString255" fc="DC" />
+      </DOType>
+      <DAType id="Originator">
+        <BDA name="orCat" bType="Enum" type="OriginatorCategoryKind" />
+        <BDA name="orIdent" bType="Octet64" />
+      </DAType>
+      <DAType id="OperBool">
+        <BDA name="ctlVal" bType="BOOLEAN" />
+        <BDA name="origin" bType="Struct" type="Originator" />
+        <BDA name="ctlNum" bType="INT8U" />
+        <BDA name="T" bType="Timestamp" />
+        <BDA name="Test" bType="BOOLEAN" />
+        <BDA name="Check" bType="Check" />
+      </DAType>
+      <DAType id="OperBehaviourModeKind">
+        <BDA name="ctlVal" bType="Enum" type="BehaviourModeKind" />
+        <BDA name="origin" bType="Struct" type="Originator" />
+        <BDA name="ctlNum" bType="INT8U" />
+        <BDA name="T" bType="Timestamp" />
+        <BDA name="Test" bType="BOOLEAN" />
+        <BDA name="Check" bType="Check" />
+      </DAType>
+      <DAType id="Unit">
+        <BDA name="SIUnit" bType="Enum" type="SIUnitKind" />
+        <BDA name="multiplier" bType="Enum" type="MultiplierKind" />
+      </DAType>
+      <DAType id="AnalogueValue">
+        <BDA name="f" bType="FLOAT32" />
+      </DAType>
+      <DAType id="TMW_Generated_Vector">
+        <BDA name="mag" bType="Struct" type="AnalogueValue" />
+      </DAType>
+      <DAType id="TMW_Generated_Unit1">
+        <BDA name="SIUnit" bType="Enum" type="SIUnitKind" />
+      </DAType>
+      <DAType id="TMW_Generated_Point">
+        <BDA name="xVal" bType="FLOAT32" />
+        <BDA name="yVal" bType="FLOAT32" />
+      </DAType>
+      <EnumType id="BehaviourModeKind">
+        <EnumVal ord="1">on</EnumVal>
+        <EnumVal ord="2">blocked</EnumVal>
+        <EnumVal ord="3">test</EnumVal>
+        <EnumVal ord="4">test/blocked</EnumVal>
+        <EnumVal ord="5">off</EnumVal>
+      </EnumType>
+      <EnumType id="CtlModelKind">
+        <EnumVal ord="0">status-only</EnumVal>
+        <EnumVal ord="1">direct-with-normal-security</EnumVal>
+        <EnumVal ord="2">sbo-with-normal-security</EnumVal>
+        <EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+        <EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+      </EnumType>
+      <EnumType id="HealthKind">
+        <EnumVal ord="1">Ok</EnumVal>
+        <EnumVal ord="2">Warning</EnumVal>
+        <EnumVal ord="3">Alarm</EnumVal>
+      </EnumType>
+      <EnumType id="OriginatorCategoryKind">
+        <EnumVal ord="0">not-supported</EnumVal>
+        <EnumVal ord="1">bay-control</EnumVal>
+        <EnumVal ord="2">station-control</EnumVal>
+        <EnumVal ord="3">remote-control</EnumVal>
+        <EnumVal ord="4">automatic-bay</EnumVal>
+        <EnumVal ord="5">automatic-station</EnumVal>
+        <EnumVal ord="6">automatic-remote</EnumVal>
+        <EnumVal ord="7">maintenance</EnumVal>
+        <EnumVal ord="8">process</EnumVal>
+      </EnumType>
+      <EnumType id="SIUnitKind">
+        <EnumVal ord="1"></EnumVal>
+        <EnumVal ord="2">m</EnumVal>
+        <EnumVal ord="3">kg</EnumVal>
+        <EnumVal ord="4">s</EnumVal>
+        <EnumVal ord="5">A</EnumVal>
+        <EnumVal ord="6">K</EnumVal>
+        <EnumVal ord="7">mol</EnumVal>
+        <EnumVal ord="8">cd</EnumVal>
+        <EnumVal ord="9">deg</EnumVal>
+        <EnumVal ord="10">rad</EnumVal>
+        <EnumVal ord="11">sr</EnumVal>
+        <EnumVal ord="21">Gy</EnumVal>
+        <EnumVal ord="22">Bq</EnumVal>
+        <EnumVal ord="23">°C</EnumVal>
+        <EnumVal ord="24">Sv</EnumVal>
+        <EnumVal ord="25">F</EnumVal>
+        <EnumVal ord="26">C</EnumVal>
+        <EnumVal ord="27">S</EnumVal>
+        <EnumVal ord="28">H</EnumVal>
+        <EnumVal ord="29">V</EnumVal>
+        <EnumVal ord="30">ohm</EnumVal>
+        <EnumVal ord="31">J</EnumVal>
+        <EnumVal ord="32">N</EnumVal>
+        <EnumVal ord="33">Hz</EnumVal>
+        <EnumVal ord="34">lx</EnumVal>
+        <EnumVal ord="35">Lm</EnumVal>
+        <EnumVal ord="36">Wb</EnumVal>
+        <EnumVal ord="37">T</EnumVal>
+        <EnumVal ord="38">W</EnumVal>
+        <EnumVal ord="39">Pa</EnumVal>
+        <EnumVal ord="41">m²</EnumVal>
+        <EnumVal ord="42">m³</EnumVal>
+        <EnumVal ord="43">m/s</EnumVal>
+        <EnumVal ord="44">m/s²</EnumVal>
+        <EnumVal ord="45">m³/s</EnumVal>
+        <EnumVal ord="46">m/m³</EnumVal>
+        <EnumVal ord="47">M</EnumVal>
+        <EnumVal ord="48">kg/m³</EnumVal>
+        <EnumVal ord="49">m²/s</EnumVal>
+        <EnumVal ord="50">W/m K</EnumVal>
+        <EnumVal ord="51">J/K</EnumVal>
+        <EnumVal ord="52">ppm</EnumVal>
+        <EnumVal ord="53">1/s</EnumVal>
+        <EnumVal ord="54">rad/s</EnumVal>
+        <EnumVal ord="55">W/m²</EnumVal>
+        <EnumVal ord="56">J/m²</EnumVal>
+        <EnumVal ord="57">S/m</EnumVal>
+        <EnumVal ord="58">K/s</EnumVal>
+        <EnumVal ord="59">Pa/s</EnumVal>
+        <EnumVal ord="60">J/kg K</EnumVal>
+        <EnumVal ord="61">VA</EnumVal>
+        <EnumVal ord="62">Watts</EnumVal>
+        <EnumVal ord="63">VAr</EnumVal>
+        <EnumVal ord="64">phi</EnumVal>
+        <EnumVal ord="65">cos(phi)</EnumVal>
+        <EnumVal ord="66">Vs</EnumVal>
+        <EnumVal ord="67">V²</EnumVal>
+        <EnumVal ord="68">As</EnumVal>
+        <EnumVal ord="69">A²</EnumVal>
+        <EnumVal ord="70">A²t</EnumVal>
+        <EnumVal ord="71">VAh</EnumVal>
+        <EnumVal ord="72">Wh</EnumVal>
+        <EnumVal ord="73">VArh</EnumVal>
+        <EnumVal ord="74">V/Hz</EnumVal>
+        <EnumVal ord="75">Hz/s</EnumVal>
+        <EnumVal ord="76">char</EnumVal>
+        <EnumVal ord="77">char/s</EnumVal>
+        <EnumVal ord="78">kgm²</EnumVal>
+        <EnumVal ord="79">dB</EnumVal>
+        <EnumVal ord="80">J/Wh</EnumVal>
+        <EnumVal ord="81">W/s</EnumVal>
+        <EnumVal ord="82">l/s</EnumVal>
+        <EnumVal ord="83">dBm</EnumVal>
+        <EnumVal ord="84">h</EnumVal>
+        <EnumVal ord="85">min</EnumVal>
+        <EnumVal ord="86">Ohm/km</EnumVal>
+      </EnumType>
+      <EnumType id="MultiplierKind">
+        <EnumVal ord="-24">y</EnumVal>
+        <EnumVal ord="-21">z</EnumVal>
+        <EnumVal ord="-18">a</EnumVal>
+        <EnumVal ord="-15">f</EnumVal>
+        <EnumVal ord="-12">p</EnumVal>
+        <EnumVal ord="-9">n</EnumVal>
+        <EnumVal ord="-6">µ</EnumVal>
+        <EnumVal ord="-3">m</EnumVal>
+        <EnumVal ord="-2">c</EnumVal>
+        <EnumVal ord="-1">d</EnumVal>
+        <EnumVal ord="0"></EnumVal>
+        <EnumVal ord="1">da</EnumVal>
+        <EnumVal ord="2">h</EnumVal>
+        <EnumVal ord="3">k</EnumVal>
+        <EnumVal ord="6">M</EnumVal>
+        <EnumVal ord="9">G</EnumVal>
+        <EnumVal ord="12">T</EnumVal>
+        <EnumVal ord="15">P</EnumVal>
+        <EnumVal ord="18">E</EnumVal>
+        <EnumVal ord="21">Z</EnumVal>
+        <EnumVal ord="24">Y</EnumVal>
+      </EnumType>
+      <EnumType id="FaultDirectionKind">
+        <EnumVal ord="0">unknown</EnumVal>
+        <EnumVal ord="1">forward</EnumVal>
+        <EnumVal ord="2">backward</EnumVal>
+        <EnumVal ord="3">both</EnumVal>
+      </EnumType>
+      <EnumType id="ReactivePowerRefParamKind">
+        <EnumVal ord="1">Reactive power in percent of WMax</EnumVal>
+        <EnumVal ord="2">Reactive power in percent of VArMax</EnumVal>
+        <EnumVal ord="3">Reactive power in percent of VArAvl</EnumVal>
+        <EnumVal ord="98">Not applicable / Unknown</EnumVal>
+      </EnumType>
+      <EnumType id="VoltageActivePowerRefParamKind">
+        <EnumVal ord="1">Active power as absolute value</EnumVal>
+        <EnumVal ord="2">Active power as percent of maximum active power</EnumVal>
+        <EnumVal ord="3">Active power as percent of snapshot active power reference</EnumVal>
+        <EnumVal ord="4">Active power as percent of the available range active power</EnumVal>
+        <EnumVal ord="5">Active power as percent of the full range active power</EnumVal>
+      </EnumType>
+    </DataTypeTemplates>
+  </SCL>
